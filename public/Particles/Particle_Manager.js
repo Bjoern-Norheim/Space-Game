@@ -31,10 +31,16 @@ class ParticleManager {
         this.particleSystems = [];
         this.particleLoop = -1
 
-        this.setParticleLoop(() => ibwfebkjefbiuexaust, 100)
+
+        this.setParticleLoop(() => {
+            // capturing -> captured "this" inside of the lambda
+            this.example()
+        }, 100)
+        // () => {/*code goes here*/}
+        // 
     }
 
-    ibwfebkjefbiuexaust() {
+    example() {
         console.log("Exhaust")
     }
 
