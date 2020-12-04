@@ -16,6 +16,7 @@ class GameMgr {
     this.locations = [];
     this.particles = [];
     this.drawLoop = -1;
+    this.particleManager = new ParticleManager(this)
     this.round = 0;
     this.map = document.getElementById("gameMap");
     this.populateStars = populateStars;
@@ -27,6 +28,7 @@ class GameMgr {
     this.upgradesList = false;
     this.isPaused = false
     this.boundaries = [window.innerWidth, window.innerHeight];
+
 
     window.onresize = () => this.boundaries = [window.innerWidth, window.innerHeight];
     //getUpgrades(this);

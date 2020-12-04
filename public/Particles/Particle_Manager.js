@@ -28,5 +28,28 @@ class ParticleManager {
     constructor(gameManager) {
 
         this.manager = gameManager
+        this.particleSystems = [];
+        this.particleLoop = -1
+
+        this.setParticleLoop(() => ibwfebkjefbiuexaust, 100)
+    }
+
+    ibwfebkjefbiuexaust() {
+        console.log("Exhaust")
+    }
+
+    setParticleLoop(particleType, interval) {
+        if (!this.isRunning()) {
+            this.particleLoop = setInterval(particleType, interval);
+        }
+    }
+
+    stopLoop() {
+        clearInterval(this.particleLoop);
+        this.particleLoop = -1;
+    }
+
+    isRunning() {
+        return this.particleLoop != -1;
     }
 }

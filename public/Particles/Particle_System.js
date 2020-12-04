@@ -1,1 +1,3 @@
-class ParticleSystem{}
+class ParticleSystem {
+
+}
