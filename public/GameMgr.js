@@ -95,6 +95,8 @@ class GameMgr {
   }
 
   updateState() {
+    this.particleManager.updateParticleLoop();
+
     let player = this.player;
     for (var i = 0; i < this.sprites.length; i++) {
       //if(this.sprites[i].hasChanged(this.spritesHistory[i])) {

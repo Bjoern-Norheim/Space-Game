@@ -28,12 +28,15 @@ class ParticleManager {
     constructor(gameManager) {
 
         this.manager = gameManager
-        this.particleSystems = [];
+        this.exahust = new ExhaustSystem(100, 100);
+        this.particleSystems = [this.exhaust];
+        this.particles = [];
         this.particleLoop = -1
 
 
         this.setParticleLoop(() => {
             // capturing -> captured "this" inside of the lambda
+            this.exahust
             this.example()
         }, 100)
         // () => {/*code goes here*/}
@@ -57,5 +60,19 @@ class ParticleManager {
 
     isRunning() {
         return this.particleLoop != -1;
+    }
+
+    updateParticleLoop() {
+        // Loop through particles updating position
+        // Generate position
+
+        // Generate new particles
+        this.exahust.exhaustParticleCreator();
+
+        // Update new and exisitng particles
+        for (particle in particles) {
+            particle.update();
+
+        }
     }
 }
