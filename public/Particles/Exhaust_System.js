@@ -1,14 +1,16 @@
 class ExhaustSystem extends ParticleSystem {
-    constructor(x, y) {
+    constructor(x, y, particleManager) {
         super(x, y)
 
-        this.particleList = []
+        this.parManager = particleManager
+
     }
 
-    exhaustParticleCreator() {
-        console.log("Create particle at " + this.x + ", " + this.y);
-        let newParticle = new Particle(); // this will get fancy later
+    spawnExhaustParticle() {
+        let newParticle = this.parManager.particleCreator()
 
+        newParticle.setPosition(100, 100)
+        newParticle.setSize(10, 10)
     }
 
     updateExhaustLocation(newX, newY) {

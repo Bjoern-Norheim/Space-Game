@@ -21,24 +21,18 @@ Responsibilities:
     Calls something on particle manager
 2. Particle manager sees that it needs a system
 3. Particle manager creates the specific paritcle system needed
-4. 
+
+
 */
 
 class ParticleManager {
     constructor(gameManager) {
 
         this.manager = gameManager
-        this.exahust = new ExhaustSystem(100, 100);
+        this.exhaust = new ExhaustSystem(100, 100, this);
         this.particleSystems = [this.exhaust];
         this.particles = [];
         this.particleLoop = -1
-
-
-        this.setParticleLoop(() => {
-            // capturing -> captured "this" inside of the lambda
-            this.exahust
-            this.example()
-        }, 100)
         // () => {/*code goes here*/}
         // 
     }
@@ -66,13 +60,25 @@ class ParticleManager {
         // Loop through particles updating position
         // Generate position
 
-        // Generate new particles
-        this.exahust.exhaustParticleCreator();
+        this.exhaust.spawnExhaustParticle()
 
         // Update new and exisitng particles
-        for (particle in particles) {
+        for (const particle of this.particles) {
+            console.log(typeof (particle))
             particle.update();
 
         }
+    }
+
+    particleCreator() {
+        var newParticle = new Particle(); // this will get fancy later
+
+        // This array simulates
+        this.particles.push(newParticle)
+
+        // This array draws
+        this.manager.sprites.push(newParticle)
+
+        return newParticle
     }
 }

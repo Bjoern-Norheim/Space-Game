@@ -203,14 +203,12 @@ text-align: center;
   margin: auto auto;
 }
 
-
-.laser{
+.laser {
   width: 20px;
   height: 10px;
   background-color: rgba(220, 20, 60, .8);
   border-radius: 30%;
   border: solid 1px rgb(139,0,0);
-
 }
 
 .sprite{

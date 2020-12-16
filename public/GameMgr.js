@@ -13,8 +13,6 @@ class GameMgr {
     this.sprites = [];
     this.enemies = [];
     this.ballistics = [];
-    this.locations = [];
-    this.particles = [];
     this.drawLoop = -1;
     this.particleManager = new ParticleManager(this)
     this.round = 0;
@@ -155,11 +153,6 @@ class GameMgr {
     this.sprites.push(ballistic);
   }
 
-  addParticle(particle) {
-    this.particles.push(particle);
-    this.sprites.push(particle);
-  }
-
   addLocation(location) {
     this.locations.push(location)
     this.sprites.push(location);
@@ -189,10 +182,6 @@ class GameMgr {
   removeBallistics(ballistic) {
     this.ballistics.splice(this.ballistics.indexOf(ballistic), 1);
     this.sprites.splice(this.sprites.indexOf(ballistic), 1);
-  }
-  removeParticles(particle) {
-    this.particle.splice(this.particles.indexOf(particle), 1);
-    this.sprites.splice(this.sprites.indexOf(particle), 1);
   }
   updateKillCount() {
     this.killCounter += 1;
