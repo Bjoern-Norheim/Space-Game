@@ -62,12 +62,25 @@ class ParticleManager {
 
         this.exhaust.spawnExhaustParticle()
 
+        this.exhaust.setPosition(this.manager.player.x, this.manager.player.y)
+
+        // Delete list for particles past their lifetime
+        var deleteList = []
+
         // Update new and exisitng particles
         for (const particle of this.particles) {
             console.log(typeof (particle))
             particle.update();
-
+            if (particle.lifeTime <= 0) {
+                deleteList.push(particle)
+            }
         }
+
+        for (const particle of deleteList) {
+            this.deleteParticle(particle)
+        }
+
+
     }
 
     particleCreator() {
@@ -81,4 +94,14 @@ class ParticleManager {
 
         return newParticle
     }
+
+    deleteParticle(par) {
+        par.delete()
+        // This removes from particles list
+        this.particles.splice(this.particles.indexOf(par), 1)
+
+        // This removes from sprites list
+        this.manager.sprites.splice(this.manager.sprites.indexOf(par), 1)
+    }
+
 }

@@ -7,5 +7,9 @@ class ParticleSystem {
         // ^ false meaning off, true meaning on ^\
     }
 
+    setPosition(x, y) {
+        this.x = x;
+        this.y = y;
+    }
 
 }

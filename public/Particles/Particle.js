@@ -2,7 +2,7 @@
 class Particle extends Sprite {
     constructor() {
         super(10, 10, 0, 0, "portal")
-
+        this.lifeTime = 0
 
 
     }
@@ -23,6 +23,12 @@ class Particle extends Sprite {
     update() {
         // Moves particle for animation
         console.log("I am moving!")
+        this.lifeTime -= 1
     }
 
+    setLifeTime(time) {
+        this.lifeTime = time
+        // Countdown -> when 0 or less 
+
+    }
 }
