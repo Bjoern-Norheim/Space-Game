@@ -50,6 +50,9 @@ body, .map {
 
 
 }
+.player {
+  background-color:red;
+}
 
 .playerUI{
  position:absolute;
