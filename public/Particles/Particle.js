@@ -1,7 +1,7 @@
 // ~Factory pattern
 class Particle extends Sprite {
-    constructor() {
-        super(10, 10, 0, 0, "portal")
+    constructor(type) {
+        super(10, 10, 0, 0, type)
         this.lifeTime = 0
 
 
@@ -28,7 +28,7 @@ class Particle extends Sprite {
 
     setLifeTime(time) {
         this.lifeTime = time
-        // Countdown -> when 0 or less 
+        // Countdown -> when 0 or less
 
     }
 }

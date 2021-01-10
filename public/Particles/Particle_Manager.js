@@ -34,7 +34,7 @@ class ParticleManager {
         this.particles = [];
         this.particleLoop = -1
         // () => {/*code goes here*/}
-        // 
+        //
     }
 
     example() {
@@ -90,8 +90,8 @@ class ParticleManager {
 
     }
 
-    particleCreator() {
-        var newParticle = new Particle(); // this will get fancy later
+    particleCreator(style) {
+        var newParticle = new Particle(style); // this will get fancy later
 
         // This array simulates
         this.particles.push(newParticle)

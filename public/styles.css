@@ -284,8 +284,13 @@ display: flex;
 width:96px;
 height: 96px;
 margin: 5px;
+}
 
 
-
-
+.exhaustParticle{
+color: grey;
+width: 10px;
+height: 10px;
+background-color: grey;
+border-radius: 300px;
 }

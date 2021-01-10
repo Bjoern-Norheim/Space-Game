@@ -7,10 +7,11 @@ class ExhaustSystem extends ParticleSystem {
     }
 
     spawnExhaustParticle() {
-        let newParticle = this.parManager.particleCreator()
+        let newParticle = this.parManager.particleCreator("exhaustParticle")
 
-        newParticle.setPosition(this.x, this.y)
+        newParticle.setPosition(this.x + randomInt(1, 25), this.y + randomInt(1, 25))
         newParticle.setSize(10, 10)
-        newParticle.setLifeTime(10)
+        newParticle.setLifeTime(35)
+
     }
 }
