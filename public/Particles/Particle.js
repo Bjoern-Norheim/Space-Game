@@ -27,6 +27,7 @@ class Particle extends Sprite {
     }
 
     setLifeTime(time) {
+        this.totalLifetime = time
         this.lifeTime = time
         // Countdown -> when 0 or less
 
