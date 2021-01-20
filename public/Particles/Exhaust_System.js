@@ -19,11 +19,13 @@ class ExhaustSystem extends ParticleSystem {
         this.lifeTime // This decreases to 0
         */
         var exhaustDecayFunction = function (lifetime, totalLifetime) {
-            var LifetimePerc = lifetime / totalLifetime
-            var opac = Math.pow(- (LifetimePerc - 1), 1 / 2)
+            var lifeTimePerc = (lifetime * 1.0) / (totalLifetime * 1.0)
+            // 1 / 2 = 0
+            // 1.0 / 2.0 = 0.5
+            var opac = Math.pow(- (lifeTimePerc - 1.0), 1.0 / 2.0)
             return opac
         }
-
+        newParticle.setDecayLambda(exhaustDecayFunction)
         /*
         (inside particle)
         this.element.style.opacity = exhaustDecayFunction(this.lifeTime, this.totalLifetime)

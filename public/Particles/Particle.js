@@ -3,7 +3,7 @@ class Particle extends Sprite {
     constructor(type) {
         super(10, 10, 0, 0, type)
         this.lifeTime = 0
-
+        this.decayLambda = null
 
     }
     setPosition(x, y) {
@@ -22,10 +22,14 @@ class Particle extends Sprite {
 
     update() {
         // Moves particle for animation
-        console.log("I am moving!")
         this.lifeTime -= 1
     }
 
+    setDecayLambda(decayFunction) {
+        this.decayLambda = decayFunction
+
+
+    }
     setLifeTime(time) {
         this.totalLifetime = time
         this.lifeTime = time

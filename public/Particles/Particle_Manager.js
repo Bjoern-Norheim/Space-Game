@@ -62,6 +62,7 @@ class ParticleManager {
 
         this.exhaust.spawnExhaustParticle()
 
+
         var cenX = this.manager.player.x + (this.manager.player.width / 2)
         var cenY = this.manager.player.y + (this.manager.player.height / 2)
         var direction = this.manager.player.rotation + 90
@@ -76,10 +77,13 @@ class ParticleManager {
         var deleteList = []
         // Update new and exisitng particles
         for (const particle of this.particles) {
-            console.log(typeof (particle))
+
             particle.update();
             if (particle.lifeTime <= 0) {
                 deleteList.push(particle)
+            }
+            if (particle.style = "exhaustParticle") {
+                particle.element.style.opacity = particle.decayLambda(particle.lifeTime, this.exhaust.lifeTime)
             }
         }
 
