@@ -31,7 +31,7 @@ class Entity extends Sprite {
   }
   onCollide(other) {
     if (!this.invinciblity) {
-    this.health -= other.damage
+      this.health -= other.damage
       this.setInvincible(true)
       setTimeout(() => this.setInvincible(false), this.iDuration)
       console.log("Health: " + this.health)
@@ -45,8 +45,9 @@ class Entity extends Sprite {
     if (this.health < 0) {
       healthBar.style.width = (0 + "%")
       // comment the two lines below this to play without a death screen
-      this.onDeath()
-      setTimeout(() => window.location.href = "/", 2000)
+      try{this.onDeath()
+      setTimeout(() => window.location.href = "/", 2000)}
+      catch(err){err = true}
     }
   }
   onDeath() {
@@ -91,12 +92,14 @@ class Player extends Entity {
 
   }
   onDeath() {
+
     super.onDeath()
     this.stopMoving()
     var game = document.getElementById("game")
     var death = document.getElementById("death")
     game.style.display = "none"
     death.style.display = "flex"
+
   }
   stopMoving() {
     for (var i in this.timerID) {

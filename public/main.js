@@ -10,6 +10,7 @@ function pickOne(list) {
   return list[randomInt(0, list.length)];
 }
 
+// Called on switch to game page
 function startGame() {
   gameMgr = new GameMgr(populateStars);
   gameMgr.startFirstGame();
@@ -40,12 +41,21 @@ function startGame() {
     }
   }
   gameMgr.upgradesList = new UpgradesList(list);
+
+
+  if (localStorage.getItem("dbbol") == true) {
+    devMode(gameMgr)
+  }
+
 }
 
-function buttonClick() {
+// Called on menu page
+function buttonClick(bol) {
+  localStorage.setItem("dbbol", bol);
+  // localStorage.getItem("dbbol") -> return the stored boolean
   window.location.href = "/game"
-
 }
+
 function populateStars(num) {
   var starMap = document.getElementById("starsSet")
   starMap.innerHTML = ''
@@ -62,4 +72,9 @@ function createStar(num, x, y, blur, spread) {
   star.style.transform = ("translate(" + x + "px, " + y + "px)")
   star.style.boxShadow = ("0px 0px " + blur + "px " + spread + "px rgba(253, 253, 253, 0.8)")
   document.getElementById("starsSet").append(star)
+}
+
+function devMode(gameMgr) {
+  gameMgr.player.onDeath = null
+  gameMgr.player.damage = 1000000
 }
