@@ -9,6 +9,7 @@
   <script src="Sprite.js"></script>
   <script src="Player.js"></script>
   <script src="main.js"></script>
+  <script src="GameMgr.js"></script>
 
   <meta charset="UTF-8">
   <title>Space Game</title>
@@ -17,8 +18,12 @@
 <body>
   <h1 class="title">Space Ship Game</h1>
 
-  <div class="button" onclick="buttonClick()">
+  <div class="button" onclick="buttonClick(false)">
     <div class="buttonText">Launch Ship</div>
+  </div>
+
+  <div class="devButton" onclick="buttonClick(true)">
+    <div class="buttonText">Dev Button</div>
   </div>
 
   <div id="starsSet" class="starSet"></div>

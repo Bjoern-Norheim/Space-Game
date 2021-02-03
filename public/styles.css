@@ -139,7 +139,27 @@ footer {
   font-size: 56pt;
 }
 
+.devButton{
+  background-color:rgb(39.2%, 58.4%, 92.9% );
+  border-style: solid;
+  border-color:#ccc;
+  border-width: 2px;
+  border-radius: 300px;
+  padding: 25px;
+  margin: 60px auto;
+  position: relative;
+  width:125px;
+  height:125px;
+  display:flex;
+  align-items:center;
+  justify-content: center;
+  user-select:none;
+}
 
+.devButton:active{
+ box-shadow: inset 0px 0px 15px #ccc;
+
+}
 
 .button{
  background-color:rgb(230, 0, 0);
@@ -293,4 +313,24 @@ width: 10px;
 height: 10px;
 background-color: grey;
 border-radius: 300px;
+}
+
+
+.equippedContainer{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  /* justify-content: space-between; */
+  justify-content: center;
+  flex-grow: 1;
+}
+
+
+.equippedBox{
+background-color: blue;
+display: flex;
+width:96px;
+height: 96px;
+margin: 5px;
+
 }

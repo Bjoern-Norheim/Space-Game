@@ -30,10 +30,21 @@ class Backpack {
     if (this.removeItem(item)) {
       this.equippedItems[item.upgradeType].push(item)
       item.equip(this.owner)
+
+      var equippedBoxes = [...document.getElementsByClassName("equippedBox")]
+      var lst = this.equippedItems["Weapon"] // TODO: Add support for showing upgrades to other slots/types
+      for (var i = 0; i < lst.length; i++) {
+        if (equippedBoxes[i].className == "equippedBox") {
+          equippedBoxes[i].innerHTML = lst[i].name
+          equippedBoxes[i].setAttribute("itemIndex", i)
+        }
+      }
+
       return true
     }
     return false
   }
+
   unequipItem(item) {
     if (removeFromArray(item, this.equippedItems[item.upgradeType])) {
       this.addItem(item)
@@ -42,10 +53,6 @@ class Backpack {
     }
     return false
   }
-
-
-
-
 }
 
 
